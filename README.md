@@ -69,7 +69,7 @@ Please follow the [initial setup](#initial-setup) instructions, then when you ha
 
 ## Database Schema
 
-
+![mock_search](db_schema.png)
 
 ## Tech Stack
 
