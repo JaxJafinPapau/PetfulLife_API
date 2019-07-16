@@ -124,7 +124,7 @@ describe 'When I visit /users' do
     it 'should delete a user' do
       delete "/api/v1/users/#{@user.id}"
 
-      expect(response.code).to eq('202')
+      expect(response.code).to eq('204')
       expect(User.last).to be_nil
     end
 
