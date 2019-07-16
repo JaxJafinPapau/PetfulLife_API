@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_07_14_045508) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "pet_products", force: :cascade do |t|
