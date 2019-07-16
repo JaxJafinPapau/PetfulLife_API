@@ -1,6 +1,34 @@
 require 'rails_helper'
 
 describe 'When I visit /users' do
+  describe 'getting a user' do
+    before :each do
+      @user = User.create(username: "bob", email: "bob@bob.com", password: "bobby")
+    end
+
+    it 'will get a user when a valid id is passed' do
+      get "/api/v1/users/#{@user.id}"
+
+      data = JSON.parse(response.body)
+      user = User.last
+
+      expect(response.code).to eq('200')
+      expect(data['data']['id'].to_i).to eq(user.id)
+      expect(data['data']['type']).to eq('user')
+      expect(data['data']['attributes']).to include('id', 'username')
+    end
+
+    it 'will fail when no user is present' do
+
+      get "/api/v1/users/#{@user.id + 1}"
+
+      data = JSON.parse(response.body)
+
+      expect(response.code).to eq('404')
+      expect(data['error']).to eq('User not found')
+    end
+  end
+
   describe 'user creation' do
     it 'creates a user' do
       post '/api/v1/users', params: {
@@ -85,6 +113,26 @@ describe 'When I visit /users' do
 
       expect(response.code).to eq('400')
 
+    end
+  end
+
+  describe 'deleting a user' do
+    before :each do
+      @user = User.create(username: "bob", email: "bob@bob.com", password: "bobby")
+    end
+
+    it 'should delete a user' do
+      delete "/api/v1/users/#{@user.id}"
+
+      expect(response.code).to eq('202')
+      expect(User.last).to be_nil
+    end
+
+    it 'should delete a user' do
+      delete "/api/v1/users/#{@user.id + 1}"
+
+      expect(response.code).to eq('404')
+      expect(User.last).to_not be_nil
     end
   end
 end
