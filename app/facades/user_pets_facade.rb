@@ -1,19 +1,20 @@
 class UserPetsFacade
-  attr_reader :id
-  def initialize(user)
+  attr_reader :id, :username
+  def initialize(user, pet = nil)
     @id = user.id
     @username = user.username
-    @pets = user.pets
+    @pet_data = user.pets
+    @pet_id = pet
   end
 
-  def pets(id = nil)
-    unless id
-      @pets.map do |pet|
+  def pets
+    unless @pet_id
+      @pet_data.map do |pet|
         UserPet.new(pet)
       end
     else
-      pet = @pet.where(id: id)
-      UserPet.new(pet)
+      pet = @pet_data.where(id: @pet_id)
+      UserPet.new(pet.first)
     end
   end
 end
