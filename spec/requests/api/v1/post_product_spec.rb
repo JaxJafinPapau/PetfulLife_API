@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'POST /api/v1/products' do
     it 'creates a new product with a good request' do
-        test_product_upc = { upc: 9780134657677 }.to_json
+        test_product_upc = { upc: 888641131105 }.to_json
 
         headers = { "CONTENT_TYPE" => "application/json" }
 
@@ -13,8 +13,9 @@ describe 'POST /api/v1/products' do
         raw_response = JSON.parse(response.body)
 
         expect(raw_response).to be_a(Hash)
-        expect(raw_response["id"]).to be_a(Integer)
-        expect(raw_response["upc"]).to be_a(Integer)
-        expect(raw_response["name"]).to be_a(String)
+        expect(raw_response["data"]["attributes"]["id"]).to be_a(Integer)
+        expect(raw_response["data"]["attributes"]["upc"]).to eq(888641131105)
+        expect(raw_response["data"]["attributes"]["name"]).to be_a(String)
+        expect(raw_response["data"]["attributes"]["avg_price"]).to be_a(Float)
     end
 end
