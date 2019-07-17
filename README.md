@@ -11,6 +11,7 @@ Please make sure you have Rails 5.2 installed in your ruby enviornment. If you d
 In order to run this API on your local maching, please fork and clone this repository, then from a terminal within the project directory run the following commands:
 
 `bundle install`
+
 `rails s`
 
 The app is configured to run on `localhost:3000`.
@@ -19,7 +20,129 @@ A convenient way to interact with an API-only rails app is through [postman](htt
 
 ## How to use
 
-A sample request could be GET `localhost:3000/api/v1/products`.  
+A sample request could be GET `localhost:3000/api/v1/products`.
+
+###Endpoints:
+
+### Users
+Reaching user Endpoints will use ```/api/v1/users```
+
+users have complete CRUD functionality
+
+#####GET user information
+In order to receive a user you are required to know that user's ID
+
+This will return a user's information **minus** their password information for security purposes
+
+Request:
+
+```GET /api/v1/users/:id```
+
+Response:
+
+Status: 200
+
+```
+{"data"=>
+	{"id"=>"20",
+	 "type"=>"user",
+	 "attributes"=>
+	 	{"id"=>20,
+	 	 "username"=>"bob"}
+	 }
+}
+```
+
+Should there be no present user the Response will return
+
+```status: 404 {error: User not found}```
+
+
+#####POST user information
+When posting to the endpoint all fields are required
+
+Request:
+
+```POST /api/v1/users```
+
+Body:
+
+Status: 201
+
+```
+{
+	"username": 'USERNAME',
+	"email": 'EMAIL',
+	"password": 'PASSWORD',
+	"password_confirmation", 'PASSWORD_CONFIRMATION'
+}
+```
+
+Response:
+
+```
+{"data"=>
+	{"id"=>"20",
+	 "type"=>"user",
+	 "attributes"=>
+	 	{"id"=>20,
+	 	 "username"=>"bob"}
+	 }
+}
+
+```
+
+If there is a failure the return of this request will give explicit errors as to the problem. Likely errors include missing fields or mismatched passwords.
+
+##### PATCH user information
+When a user wishes to update their information they are able to do so completely or with single field requests.
+
+The user ID is required to update a user's information
+
+Request: ```PATCH /api/v1/users/:id```
+
+Body:
+
+Again This request may contain one or all field in the body, the exception if the ```password``` and ```password_confirmation``` fields.
+
+```
+{
+	"username": 'USERNAME',
+	"email": 'EMAIL',
+	"password": 'PASSWORD',
+	"password_confirmation", 'PASSWORD_CONFIRMATION'
+}
+```
+
+Response:
+
+Status: 201
+
+```
+{"data"=>
+	{"id"=>"20",
+	 "type"=>"user",
+	 "attributes"=>
+	 	{"id"=>20,
+	 	 "username"=>"bob"}
+	 }
+}
+
+```
+
+Should any of the field be incorrect or if the passwords are mismatched the response will be explicit error messages regarding the failure. with a status of  400
+
+##### DELETE user information
+When a user wishes to delete the user they are required to have the ID of that user.
+
+**This is permanent and *can not* be undone**
+
+Request: ```DELETE /api/v1/users/:ID```
+
+Response: ```Status: 204```
+
+Should it fail the response will be ```status: 404 {error: 'user not found'}```
+
 
 #### Products
 

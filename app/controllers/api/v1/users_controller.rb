@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApplicationController
     end
     if user
       user.delete
-      render json: {}, status: 202
+      render json: {}, status: 204
     else
       render :json => { :error => "User not found" }, status: 404
     end
