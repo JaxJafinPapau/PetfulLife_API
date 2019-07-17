@@ -13,5 +13,8 @@ describe 'POST /api/v1/products' do
         raw_response = JSON.parse(response.body)
 
         expect(raw_response).to be_a(Hash)
+        expect(raw_response["id"]).to be_a(Integer)
+        expect(raw_response["upc"]).to be_a(Integer)
+        expect(raw_response["name"]).to be_a(String)
     end
 end
