@@ -34,4 +34,18 @@ describe 'POST /api/v1/products' do
         expect(raw_response["data"]["attributes"]["name"]).to eq(product_1.name)
         expect(raw_response["data"]["attributes"]["avg_price"]).to eq(product_1.avg_price)
     end
+
+    #sad path
+    it 'returns correct error message if product is not found' do
+        test_product_upc = { upc: 10101010101010101 }.to_json
+
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        post "/api/v1/products", headers: headers, params: test_product_upc
+
+        expect(response.status).to eq(400)
+        raw_response = JSON.parse(response.body)
+
+        expect(raw_response["error"]).to eq("Sorry, that product wasn't found.")
+    end
 end
