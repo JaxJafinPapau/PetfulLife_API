@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_034911) do
+ActiveRecord::Schema.define(version: 2019_07_17_052907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_07_17_034911) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "avg_price"
-    t.float "avg_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "upc"
