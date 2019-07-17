@@ -20,6 +20,7 @@ class ProductFacade
     private
 
         def new_product
+            return { id: nil, name: nil, avg_price: nil } if raw_product == nil
             product = Product.create(name: raw_product['title'],
                            upc: @upc,
                            avg_price: raw_product['price']['value'].to_f
@@ -28,7 +29,11 @@ class ProductFacade
         end
 
         def raw_product
-            @_raw_product ||= get_ebay_product.response['itemSummaries'].first
+            if get_ebay_product.response['itemSummaries']
+                @_raw_product ||= get_ebay_product.response['itemSummaries'][0]
+            else
+                nil
+            end
         end
 
         def get_ebay_product
