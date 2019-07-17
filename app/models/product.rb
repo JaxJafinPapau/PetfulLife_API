@@ -7,5 +7,4 @@ class Product < ApplicationRecord
   validates_presence_of :name
 
   validates :avg_price, numericality: {only_float: true}
-  validates :avg_rating, numericality: {only_float: true}
 end
