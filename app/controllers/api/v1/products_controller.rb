@@ -1,7 +1,7 @@
 class Api::V1::ProductsController < ApplicationController
     def create
-        response_body = ProductFacade.new(create_params)
-        render status: 201, json: ProductSerializer.new(response_body)
+        product = ProductFacade.new(create_params)
+        render status: 201, json: ProductSerializer.new(product)
     end
 
     private
