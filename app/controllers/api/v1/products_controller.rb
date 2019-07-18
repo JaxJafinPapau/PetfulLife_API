@@ -1,8 +1,15 @@
 class Api::V1::ProductsController < ApplicationController
     def create
         product = ProductFacade.new(create_params)
-        status = create_status(product)
+        status = create_201_status(product)
         result = create_result(product)
+        render status: status, json: result
+    end
+
+    def show
+        raw_product = Product.find(params[:id])
+        status = create_200_status(raw_product)
+        result = create_result(raw_product)
         render status: status, json: result
     end
 
@@ -12,7 +19,7 @@ class Api::V1::ProductsController < ApplicationController
             params.permit(:upc).require(:upc)
         end
 
-        def create_status(product)
+        def create_201_status(product)
             return 400 if product.id == nil
             return 201 if product.id != nil
         end
@@ -20,5 +27,10 @@ class Api::V1::ProductsController < ApplicationController
         def create_result(product)
             return ProductSerializer.new(product) if product.id != nil
             return {error: "Sorry, that product wasn't found."} if product.id == nil
+        end
+
+        def create_200_status(product)
+            return 400 if product.id == nil
+            return 200 if product.id != nil
         end
 end
