@@ -7,10 +7,16 @@ class Api::V1::ProductsController < ApplicationController
     end
 
     def show
-        raw_product = Product.find(params[:id])
-        status = create_200_status(raw_product)
-        result = create_result(raw_product)
-        render status: status, json: result
+        begin
+            product = Product.find(params[:id])
+        rescue
+            product = nil
+        end
+        if product
+            render json: ProductSerializer.new(product), status: 200
+        else
+            render :json => { :error => "Sorry, that product wasn't found." }, status: 404
+        end
     end
 
     private
@@ -27,10 +33,5 @@ class Api::V1::ProductsController < ApplicationController
         def create_result(product)
             return ProductSerializer.new(product) if product.id != nil
             return {error: "Sorry, that product wasn't found."} if product.id == nil
-        end
-
-        def create_200_status(product)
-            return 400 if product.id == nil
-            return 200 if product.id != nil
         end
 end
