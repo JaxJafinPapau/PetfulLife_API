@@ -23,20 +23,32 @@ class ProductFacade
             return { id: nil, name: nil, avg_price: nil } if raw_product == nil
             product = Product.create(name: raw_product['title'],
                            upc: @upc,
-                           avg_price: raw_product['price']['value'].to_f
+                           avg_price: average_price(lowest_product_price, highest_product_price)
             )
             product
         end
 
         def raw_product
-            if get_ebay_product.response['itemSummaries']
-                @_raw_product ||= get_ebay_product.response['itemSummaries'][0]
+            if get_product_by_upc.response['items'].first.present?
+                @_raw_product ||= get_product_by_upc.response['items'][0]
             else
                 nil
             end
         end
 
-        def get_ebay_product
-            @_get_ebay_product ||= EbayService.new(@upc)
+        def get_product_by_upc
+            @_product_by_upc ||= UpcItemDbService.new(@upc)
+        end
+
+        def highest_product_price
+            raw_product['highest_recorded_price']
+        end
+
+        def lowest_product_price
+            raw_product['lowest_recorded_price']
+        end
+
+        def average_price(low_price, high_price)
+            ((low_price + high_price) / 2).to_f
         end
 end
