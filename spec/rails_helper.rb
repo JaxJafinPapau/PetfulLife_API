@@ -10,9 +10,11 @@ require 'webmock/rspec'
 
 VCR.configure do |c|
   #the directory where your cassettes will be saved
+  c.ignore_localhost = true
   c.cassette_library_dir = 'spec/cassettes'
-  # your HTTP request service. You can also use fakeweb, webmock, and more
   c.hook_into :webmock
+  c.configure_rspec_metadata!
+  # your HTTP request service. You can also use fakeweb, webmock, and more
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 

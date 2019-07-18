@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'POST /api/v1/products' do
+describe 'POST /api/v1/products', :vcr do
     it 'creates a new product with a good request' do
         test_product_upc = { upc: 888641131105 }.to_json
 

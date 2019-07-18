@@ -1,0 +1,323 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=888641131105
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 20:09:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '41'
+      Etag:
+      - W/"e1f-HXnD+7uF5WMSFN3PHkyaMw"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: ASCII-8BIT
+      string: '{"code":"OK","total":1,"offset":0,"items":[{"ean":"0888641131105","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","description":"Zignature Limited
+        Ingredient Grain-Free Turkey Formula Dry Dog Food, 27 lb","upc":"888641131105","brand":"Zignature","model":"31105","color":"","size":"27
+        lb Bag","dimension":"24 X 16 X 4 inches","weight":"27 Pounds","currency":"","lowest_recorded_price":40.49,"highest_recorded_price":86.83,"images":["https://i5.walmartimages.com/asr/f6b3cd69-2654-4902-8569-b3d0a7ca3717_1.c2e486f75e5522cb2d04bf67f4fc22e9.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff","https://tshop.r10s.com/8d9/a9a/d0d6/b637/d0d9/d487/b8ea/11e5e7b0f954ab3a295b6a.JPG?_ex=512x512","http://site.unbeatablesale.com/AGMD5127.JPG","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://207.86.186.76/1000x1000/55/55-ZG03-27.jpg","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139"],"offers":[{"merchant":"Dog.com","domain":"dog.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=x2o203z23323d4&tid=1&seq=1563480553&plt=f9b5e6cb4628067c999fbb13c5e07966","updated_t":1494827947},{"merchant":"Cherrybrook","domain":"cherrybrook.com","title":"Zignature
+        Turkey 27lbs","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2p2y223x2z2a494x2&tid=1&seq=1563480553&plt=75524666f983f31a5d484deff0277fb4","updated_t":1563448873},{"merchant":"Petfood.com","domain":"petfood.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2x2z213035364&tid=1&seq=1563480553&plt=ec9bcf24cc94fd87a370f1d8bee8e3ff","updated_t":1447378988},{"merchant":"1800PetSupplies.com","domain":"petsupplies.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2w2x203z233c4&tid=1&seq=1563480553&plt=073128c04f06940899c94f9e372b4562","updated_t":1474182992},{"merchant":"UnbeatableSale.com","domain":"unbeatablesale.com","title":"Pets
+        Global ZG13110 Zignature Turkey Dry Dog Food 27 lbs","currency":"","list_price":"","price":50.47,"shipping":"16.39","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=v2v2y21313y2b4c4z2&tid=1&seq=1563480553&plt=a6ec3e71f72a92d7dd4610a237c3888e","updated_t":1508356804},{"merchant":"Rakuten(Buy.com)","domain":"rakuten.com","title":"Dog
+        Supplies Zignature Turkey Dry Kibble Dog Food 27Lb","currency":"","list_price":"","price":49.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=y2r263w2z2436464&tid=1&seq=1563480553&plt=7a305eeb2f62bc429bfb3f2fa6a5abbc","updated_t":1526762726},{"merchant":"Wal-Mart.com","domain":"walmart.com","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","currency":"","list_price":"","price":62.56,"shipping":"Free
+        Shipping","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2q263v2y2y2b474y2&tid=1&seq=1563480553&plt=d630523b19b6facbe7f221c29d1128f0","updated_t":1525640258}],"asin":"B007GCGQGC","elid":"352668051898"}]}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 20:09:13 GMT
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=888641131105
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 20:09:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '40'
+      Etag:
+      - W/"e1f-exQ4bYhj05N4Ve6czxd4fQ"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: ASCII-8BIT
+      string: '{"code":"OK","total":1,"offset":0,"items":[{"ean":"0888641131105","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","description":"Zignature Limited
+        Ingredient Grain-Free Turkey Formula Dry Dog Food, 27 lb","upc":"888641131105","brand":"Zignature","model":"31105","color":"","size":"27
+        lb Bag","dimension":"24 X 16 X 4 inches","weight":"27 Pounds","currency":"","lowest_recorded_price":40.49,"highest_recorded_price":86.83,"images":["https://i5.walmartimages.com/asr/f6b3cd69-2654-4902-8569-b3d0a7ca3717_1.c2e486f75e5522cb2d04bf67f4fc22e9.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff","https://tshop.r10s.com/8d9/a9a/d0d6/b637/d0d9/d487/b8ea/11e5e7b0f954ab3a295b6a.JPG?_ex=512x512","http://site.unbeatablesale.com/AGMD5127.JPG","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://207.86.186.76/1000x1000/55/55-ZG03-27.jpg","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139"],"offers":[{"merchant":"Dog.com","domain":"dog.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=x2o203z23323d4&tid=1&seq=1563480554&plt=e41677a75a1d4b573b014a44d8ea4665","updated_t":1494827947},{"merchant":"Cherrybrook","domain":"cherrybrook.com","title":"Zignature
+        Turkey 27lbs","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2p2y223x2z2a494x2&tid=1&seq=1563480554&plt=8ed0ae45e60df0e5ce4dab3732d5c8bc","updated_t":1563448873},{"merchant":"Petfood.com","domain":"petfood.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2x2z213035364&tid=1&seq=1563480554&plt=f8b47e35e35ed01c30ffe66dd0d63cbb","updated_t":1447378988},{"merchant":"1800PetSupplies.com","domain":"petsupplies.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2w2x203z233c4&tid=1&seq=1563480554&plt=2436b9bda425b69ea57653139a41f1ae","updated_t":1474182992},{"merchant":"UnbeatableSale.com","domain":"unbeatablesale.com","title":"Pets
+        Global ZG13110 Zignature Turkey Dry Dog Food 27 lbs","currency":"","list_price":"","price":50.47,"shipping":"16.39","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=v2v2y21313y2b4c4z2&tid=1&seq=1563480554&plt=cd00c1ced116f058d4d628c0432c0d00","updated_t":1508356804},{"merchant":"Rakuten(Buy.com)","domain":"rakuten.com","title":"Dog
+        Supplies Zignature Turkey Dry Kibble Dog Food 27Lb","currency":"","list_price":"","price":49.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=y2r263w2z2436464&tid=1&seq=1563480554&plt=d3e346c4f6d64390e494bca6cdae807a","updated_t":1526762726},{"merchant":"Wal-Mart.com","domain":"walmart.com","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","currency":"","list_price":"","price":62.56,"shipping":"Free
+        Shipping","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2q263v2y2y2b474y2&tid=1&seq=1563480554&plt=cdcd933015008749e8b1ecc633269918","updated_t":1525640258}],"asin":"B007GCGQGC","elid":"352668051898"}]}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 20:09:14 GMT
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=888641131105
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 20:09:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '39'
+      Etag:
+      - W/"e1f-ittMQDcrlPFY32oi2Lsxig"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: ASCII-8BIT
+      string: '{"code":"OK","total":1,"offset":0,"items":[{"ean":"0888641131105","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","description":"Zignature Limited
+        Ingredient Grain-Free Turkey Formula Dry Dog Food, 27 lb","upc":"888641131105","brand":"Zignature","model":"31105","color":"","size":"27
+        lb Bag","dimension":"24 X 16 X 4 inches","weight":"27 Pounds","currency":"","lowest_recorded_price":40.49,"highest_recorded_price":86.83,"images":["https://i5.walmartimages.com/asr/f6b3cd69-2654-4902-8569-b3d0a7ca3717_1.c2e486f75e5522cb2d04bf67f4fc22e9.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff","https://tshop.r10s.com/8d9/a9a/d0d6/b637/d0d9/d487/b8ea/11e5e7b0f954ab3a295b6a.JPG?_ex=512x512","http://site.unbeatablesale.com/AGMD5127.JPG","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://207.86.186.76/1000x1000/55/55-ZG03-27.jpg","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139"],"offers":[{"merchant":"Dog.com","domain":"dog.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=x2o203z23323d4&tid=1&seq=1563480555&plt=db50a1574c099b16097c24067c465411","updated_t":1494827947},{"merchant":"Cherrybrook","domain":"cherrybrook.com","title":"Zignature
+        Turkey 27lbs","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2p2y223x2z2a494x2&tid=1&seq=1563480555&plt=9bd5335538991ba90af1b9de9a41e51b","updated_t":1563448873},{"merchant":"Petfood.com","domain":"petfood.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2x2z213035364&tid=1&seq=1563480555&plt=69644a91afc716295b567dc1e0bf6b71","updated_t":1447378988},{"merchant":"1800PetSupplies.com","domain":"petsupplies.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2w2x203z233c4&tid=1&seq=1563480555&plt=e008d9dcff0b18b71a8fd09936b39e9e","updated_t":1474182992},{"merchant":"UnbeatableSale.com","domain":"unbeatablesale.com","title":"Pets
+        Global ZG13110 Zignature Turkey Dry Dog Food 27 lbs","currency":"","list_price":"","price":50.47,"shipping":"16.39","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=v2v2y21313y2b4c4z2&tid=1&seq=1563480555&plt=5666600e66446fe05bba99f9c7472072","updated_t":1508356804},{"merchant":"Rakuten(Buy.com)","domain":"rakuten.com","title":"Dog
+        Supplies Zignature Turkey Dry Kibble Dog Food 27Lb","currency":"","list_price":"","price":49.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=y2r263w2z2436464&tid=1&seq=1563480555&plt=27c4e95702d6f653bb03e1262d63c7c9","updated_t":1526762726},{"merchant":"Wal-Mart.com","domain":"walmart.com","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","currency":"","list_price":"","price":62.56,"shipping":"Free
+        Shipping","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2q263v2y2y2b474y2&tid=1&seq=1563480555&plt=9c324ea37290c6446155d8c14574ab57","updated_t":1525640258}],"asin":"B007GCGQGC","elid":"352668051898"}]}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 20:09:15 GMT
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=888641131105
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 20:09:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '38'
+      Etag:
+      - W/"e1f-HYxiGLUWaqMDpMOp/8XnjA"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: ASCII-8BIT
+      string: '{"code":"OK","total":1,"offset":0,"items":[{"ean":"0888641131105","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","description":"Zignature Limited
+        Ingredient Grain-Free Turkey Formula Dry Dog Food, 27 lb","upc":"888641131105","brand":"Zignature","model":"31105","color":"","size":"27
+        lb Bag","dimension":"24 X 16 X 4 inches","weight":"27 Pounds","currency":"","lowest_recorded_price":40.49,"highest_recorded_price":86.83,"images":["https://i5.walmartimages.com/asr/f6b3cd69-2654-4902-8569-b3d0a7ca3717_1.c2e486f75e5522cb2d04bf67f4fc22e9.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff","https://tshop.r10s.com/8d9/a9a/d0d6/b637/d0d9/d487/b8ea/11e5e7b0f954ab3a295b6a.JPG?_ex=512x512","http://site.unbeatablesale.com/AGMD5127.JPG","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://207.86.186.76/1000x1000/55/55-ZG03-27.jpg","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139"],"offers":[{"merchant":"Dog.com","domain":"dog.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=x2o203z23323d4&tid=1&seq=1563480556&plt=570abd76c741fb2b1e2758605c7d4036","updated_t":1494827947},{"merchant":"Cherrybrook","domain":"cherrybrook.com","title":"Zignature
+        Turkey 27lbs","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2p2y223x2z2a494x2&tid=1&seq=1563480556&plt=f59d4cc2cefc771d7a9f9eb2d3789dee","updated_t":1563448873},{"merchant":"Petfood.com","domain":"petfood.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2x2z213035364&tid=1&seq=1563480556&plt=94fc1397e814a348a3c6fdea8acdcc46","updated_t":1447378988},{"merchant":"1800PetSupplies.com","domain":"petsupplies.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2w2x203z233c4&tid=1&seq=1563480556&plt=7cd1f836c9e2c4bffb074bfd1642a867","updated_t":1474182992},{"merchant":"UnbeatableSale.com","domain":"unbeatablesale.com","title":"Pets
+        Global ZG13110 Zignature Turkey Dry Dog Food 27 lbs","currency":"","list_price":"","price":50.47,"shipping":"16.39","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=v2v2y21313y2b4c4z2&tid=1&seq=1563480556&plt=991d21b94e57b4dd6f2a388ed183a319","updated_t":1508356804},{"merchant":"Rakuten(Buy.com)","domain":"rakuten.com","title":"Dog
+        Supplies Zignature Turkey Dry Kibble Dog Food 27Lb","currency":"","list_price":"","price":49.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=y2r263w2z2436464&tid=1&seq=1563480556&plt=41d970d842cebf741998203a8f29f504","updated_t":1526762726},{"merchant":"Wal-Mart.com","domain":"walmart.com","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","currency":"","list_price":"","price":62.56,"shipping":"Free
+        Shipping","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2q263v2y2y2b474y2&tid=1&seq=1563480556&plt=6a87df17691e9c4c615fd69bb60b7c53","updated_t":1525640258}],"asin":"B007GCGQGC","elid":"352668051898"}]}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 20:09:16 GMT
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=888641131105
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 20:09:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '37'
+      Etag:
+      - W/"e1f-8S4uQ+m+1U6ResJ4TMlwvg"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: ASCII-8BIT
+      string: '{"code":"OK","total":1,"offset":0,"items":[{"ean":"0888641131105","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","description":"Zignature Limited
+        Ingredient Grain-Free Turkey Formula Dry Dog Food, 27 lb","upc":"888641131105","brand":"Zignature","model":"31105","color":"","size":"27
+        lb Bag","dimension":"24 X 16 X 4 inches","weight":"27 Pounds","currency":"","lowest_recorded_price":40.49,"highest_recorded_price":86.83,"images":["https://i5.walmartimages.com/asr/f6b3cd69-2654-4902-8569-b3d0a7ca3717_1.c2e486f75e5522cb2d04bf67f4fc22e9.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff","https://tshop.r10s.com/8d9/a9a/d0d6/b637/d0d9/d487/b8ea/11e5e7b0f954ab3a295b6a.JPG?_ex=512x512","http://site.unbeatablesale.com/AGMD5127.JPG","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139","http://207.86.186.76/1000x1000/55/55-ZG03-27.jpg","http://images.prosperentcdn.com/images/250x250/s7d5.scene7.com/is/image/PetsUnited/T499139"],"offers":[{"merchant":"Dog.com","domain":"dog.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=x2o203z23323d4&tid=1&seq=1563480557&plt=99d9d10ba55c634c003da9b1a2f856ca","updated_t":1494827947},{"merchant":"Cherrybrook","domain":"cherrybrook.com","title":"Zignature
+        Turkey 27lbs","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2p2y223x2z2a494x2&tid=1&seq=1563480557&plt=4992eb7e6889061d2cb2e5c33c0471de","updated_t":1563448873},{"merchant":"Petfood.com","domain":"petfood.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2x2z213035364&tid=1&seq=1563480557&plt=1fd66dd48a3db9d9c730bb7d8ce2914a","updated_t":1447378988},{"merchant":"1800PetSupplies.com","domain":"petsupplies.com","title":"Zignature
+        Grain Free Turkey Dry Dog Food 27lb","currency":"","list_price":"","price":54.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=w2w2x203z233c4&tid=1&seq=1563480557&plt=3f526f11e494c0cfb3064ed6a4a75660","updated_t":1474182992},{"merchant":"UnbeatableSale.com","domain":"unbeatablesale.com","title":"Pets
+        Global ZG13110 Zignature Turkey Dry Dog Food 27 lbs","currency":"","list_price":"","price":50.47,"shipping":"16.39","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=v2v2y21313y2b4c4z2&tid=1&seq=1563480557&plt=f73ab8b292d33794c2524bbe9c5517ef","updated_t":1508356804},{"merchant":"Rakuten(Buy.com)","domain":"rakuten.com","title":"Dog
+        Supplies Zignature Turkey Dry Kibble Dog Food 27Lb","currency":"","list_price":"","price":49.99,"shipping":"","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=y2r263w2z2436464&tid=1&seq=1563480557&plt=5751189eb68507aa93371ba70fb97f72","updated_t":1526762726},{"merchant":"Wal-Mart.com","domain":"walmart.com","title":"Zignature
+        Turkey Dry Dog Food, 27-Pound Multi-Colored","currency":"","list_price":"","price":62.56,"shipping":"Free
+        Shipping","condition":"New","availability":"","link":"http://www.upcitemdb.com/norob/alink/?id=u2q263v2y2y2b474y2&tid=1&seq=1563480557&plt=3e77f168d4a950c8696b03b23db5c82f","updated_t":1525640258}],"asin":"B007GCGQGC","elid":"352668051898"}]}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 20:09:17 GMT
+recorded_with: VCR 5.0.0
