@@ -41,10 +41,14 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 

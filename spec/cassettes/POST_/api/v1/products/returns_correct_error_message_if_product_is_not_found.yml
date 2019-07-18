@@ -1,0 +1,162 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=10101010101010101
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 21:03:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '56'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '33'
+      Etag:
+      - W/"38-FrYcOPL/utwkElKvXQ/YzQ"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: UTF-8
+      string: '{"code":"INVALID_UPC","message":"Not a valid UPC code."}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 21:03:03 GMT
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=10101010101010101
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 21:03:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '56'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '32'
+      Etag:
+      - W/"38-FrYcOPL/utwkElKvXQ/YzQ"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: UTF-8
+      string: '{"code":"INVALID_UPC","message":"Not a valid UPC code."}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 21:03:04 GMT
+- request:
+    method: get
+    uri: https://api.upcitemdb.com/prod/trial/lookup?upc=10101010101010101
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - openresty/1.9.7.4
+      Date:
+      - Thu, 18 Jul 2019 21:03:05 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '56'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1563563268'
+      X-Ratelimit-Remaining:
+      - '31'
+      Etag:
+      - W/"38-FrYcOPL/utwkElKvXQ/YzQ"
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://www.upcitemdb.com
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept
+      Access-Control-Expose-Headers:
+      - Content-Type,X-RateLimit-Remaining,X-RateLimit-Limit,X-RateLimit-Reset,total,offset
+    body:
+      encoding: UTF-8
+      string: '{"code":"INVALID_UPC","message":"Not a valid UPC code."}'
+    http_version: 
+  recorded_at: Thu, 18 Jul 2019 21:03:05 GMT
+recorded_with: VCR 5.0.0
