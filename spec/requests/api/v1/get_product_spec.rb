@@ -10,8 +10,7 @@ describe 'GET api/v1/products/:id' do
 
         expect(response.status).to eq(200)
 
-        response_product = JSON.parse(response.body)['data']['product']
-
+        response_product = JSON.parse(response.body)['data']['attributes']
         expect(response_product['id']).to eq(product_1.id)
         expect(response_product['name']).to eq(product_1.name)
         expect(response_product['upc']).to eq(product_1.upc)
