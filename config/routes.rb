@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       resources :products, only: [:create]
-
-      resources :users, only: [:create, :update, :show, :destroy]
-
+      resources :users, only: [:create, :update, :show, :destroy] do
+        resources :pets, only: [:index, :show, :create, :update, :destroy]
+      end
     end
   end
 end
