@@ -29,7 +29,7 @@ class ProductFacade
         end
 
         def raw_product
-            if get_product_by_upc.response['items'].first.present?
+            if get_product_by_upc.response['code'] == "OK"
                 @_raw_product ||= get_product_by_upc.response['items'][0]
             else
                 nil
