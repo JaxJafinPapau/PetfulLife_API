@@ -170,6 +170,164 @@ Return all products, serialized as:
 ]
 ```
 
+###Pets
+In order to receive any pet information you must know the pets' owner id
+The base URL You will be user is ```/api/v1/users/:user_id/pets```
+
+#### Get Pet Information
+To recieve all pets associated with a user:
+Request:
+
+```
+GET - /api/v1/user/:user_id/pets
+```
+
+Response:
+
+Status: 200
+
+```
+{"data"=>
+  {"id"=>"753",
+   "type"=>"user_pets",
+   "attributes"=>
+    {"id"=>753,
+     "username"=>"bob",
+     "pets"=>
+	      [{"id"=>351,
+	      	"name"=>"Chocolate",
+	      	"nickname"=>"Choco",
+	      	"breed"=>"mutt",
+	      	"archetype"=>"dog"},
+	       {"id"=>352,
+	       "name"=>"Vanilla",
+	       "nickname"=>"Van",
+	       "breed"=>"mutt",
+	       "archetype"=>"dog"}]
+	      	}
+	 }
+}
+```
+
+#### Get Single Pet Information
+This will return a single pet's information You must know the User ID **and** Pet Id
+
+Request:
+
+```
+GET - /api/v1/users/:user_id/pets/:pet_id
+```
+
+Response:
+
+Status: 200
+
+```
+{"data"=>
+  {"id"=>"741",
+   "type"=>"user_pets",
+   "attributes"=>
+    {"id"=>741,
+     "username"=>"bob",
+     "pets"=> {"id"=>341,
+     			  "name"=>"Chocolate",
+     			  "nickname"=>"Choco",
+     			  "breed"=>"mutt",
+     			  "archetype"=>"dog"}
+     			  }
+ }}
+```
+
+####POST - Pet Creation
+This action will allow a user to create a pet. You must have a user and know the user ID to create a pet
+
+Request:
+
+```
+POST - /api/v1/users/#{@user.id}/pets
+```
+
+Body:
+
+Nickname is **optional**
+
+```
+{
+  'name': 'pupper',
+  'nickname': 'pup',
+  'archetype': 'dog',
+  'breed': 'mutt'
+}
+```
+
+Response:
+
+Status: 201
+
+```
+{"data"=>
+  {"id"=>"369",
+   "type"=>"pet",
+   "attributes"=>{"id"=>369,
+   					"name"=>"pupper",
+   					"nickname"=>"pup",
+   					"breed"=>"mutt",
+   					"archetype"=>"dog"}}}
+```
+
+####Patch - Update Pet information
+To update a pet's information you need the user ID and pet ID. You are able to update all or single fields as needed
+
+Request:
+
+```
+patch "/api/v1/users/#{@user.id}/pets/#{pet.id}"
+```
+Body:
+
+Each field is optional but you must include at least one.
+
+```
+{
+  'name': 'pupper',
+  'nickname': 'pup',
+  'archetype': 'dog',
+  'breed': 'motto'
+}
+```
+
+Response:
+
+Status: 202
+
+```
+{"data"=>
+  {"id"=>"382",
+   "type"=>"pet",
+   "attributes"=>{"id"=>382,
+   					"name"=>"pupper",
+   					"nickname"=>"pup",
+   					"breed"=>"motto",
+   					"archetype"=>"dog"}
+  }
+}
+```
+
+####Delete - Pet Deletion
+To delete a pet you must know the user id and pet id. The User must also own the Pet to be able to delete it.
+
+**This is permanent and *can not* be undone**
+
+Request:
+
+```
+DELETE /api/v1/users/:user_id/pets/:pet_id
+```
+
+Response:
+
+Status: 204
+
 ## Tests
 
 The test suite for this project is rspec. In order to run the suite, after following the [initial setup](#initial-setup) instructions above, run the following from a terminal in the root project directory:
