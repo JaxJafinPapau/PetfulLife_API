@@ -41,7 +41,6 @@ describe 'POST /api/v1/products', :vcr do
 
         headers = { "CONTENT_TYPE" => "application/json" }
 
-        sleep(15)
         post "/api/v1/products", headers: headers, params: test_product_upc
 
         expect(response.status).to eq(400)
