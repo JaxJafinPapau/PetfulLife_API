@@ -16,4 +16,19 @@ describe 'GET api/v1/products/:id' do
         expect(response_product['upc']).to eq(product_1.upc)
         expect(response_product['avg_price']).to eq(product_1.avg_price)
     end
+
+    #sad path
+
+    it 'should return the appropriate error message if product is not found' do
+        product_1 = Product.create(id: 1001, name: "test_product", upc: 330033003300, avg_price: 1.23)
+
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        get "/api/v1/products/2008", headers: headers
+
+        expect(response.status).to eq(404)
+        
+        raw_response = JSON.parse(response.body)
+        expect(raw_response["error"]).to eq("Sorry, that product wasn't found.")
+    end
 end
