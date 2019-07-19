@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :products, only: [:create, :show, :destroy]
       resources :users, only: [:create, :update, :show, :destroy] do
         resources :pets, only: [:index, :show, :create, :update, :destroy]
+        get '/products', to: 'products#index'
       end
     end
   end
