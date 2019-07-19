@@ -29,7 +29,7 @@ class Api::V1::ProductsController < ApplicationController
             product.delete
             render json: {}, status: 204
         else
-        render :json => { :error => "Product not found" }, status: 404
+        render :json => { :error => "Sorry, that product wasn't found." }, status: 404
         end
     end
 
