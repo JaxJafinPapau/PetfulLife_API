@@ -19,6 +19,20 @@ class Api::V1::ProductsController < ApplicationController
         end
     end
 
+    def destroy
+        begin
+            product = Product.find(params[:id])
+        rescue
+            product = nil
+        end
+        if product
+            product.delete
+            render json: {}, status: 204
+        else
+        render :json => { :error => "Product not found" }, status: 404
+        end
+    end
+
     private
 
         def create_params
