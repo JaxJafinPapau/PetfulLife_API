@@ -19,6 +19,30 @@ class Api::V1::ProductsController < ApplicationController
         end
     end
 
+    def index
+        begin
+            user = User.find(params['user_id'].to_i)
+        rescue
+            user = nil
+        end
+        if user
+            begin
+                products = user.products
+            rescue
+                products = nil
+            end
+            if products
+                userproducts = UserProductsFacade.new(user, products)
+
+                render json: userproducts, status: 200
+            else
+                render :json => { :error => "This user has no products yet." }
+            end
+        else
+            render :json => { :error => "User not found." }, status: 404
+        end
+    end
+
     def destroy
         begin
             product = Product.find(params[:id])
