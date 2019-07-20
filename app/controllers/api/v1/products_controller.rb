@@ -33,10 +33,11 @@ class Api::V1::ProductsController < ApplicationController
             end
             if products
                 userproducts = UserProductsFacade.new(user, products)
-
-                render json: userproducts, status: 200
+                serialized_userproducts = UserProductsSerializer.new(userproducts)
+                render json: serialized_userproducts, status: 200
             else
-                render :json => { :error => "This user has no products yet." }
+                # Not sure if 203 is the correct response for this, will check.
+                render :json => { :error => "This user has no products yet." }, status: 203
             end
         else
             render :json => { :error => "User not found." }, status: 404
