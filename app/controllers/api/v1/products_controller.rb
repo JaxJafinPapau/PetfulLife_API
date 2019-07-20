@@ -31,7 +31,7 @@ class Api::V1::ProductsController < ApplicationController
             rescue
                 products = nil
             end
-            if products
+            if products && products[0]
                 userproducts = UserProductsFacade.new(user, products)
                 serialized_userproducts = UserProductsSerializer.new(userproducts)
                 render json: serialized_userproducts, status: 200
