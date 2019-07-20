@@ -12,10 +12,15 @@ describe 'GET api/v1/users/:user_id/products' do
 
         expect(response.status).to eq(200)
 
-        # response_product = JSON.parse(response.body)['data']['attributes']
-        # expect(response_product['id']).to eq(product_1.id)
-        # expect(response_product['name']).to eq(product_1.name)
-        # expect(response_product['upc']).to eq(product_1.upc)
-        # expect(response_product['avg_price']).to eq(product_1.avg_price)
+        user_with_products = JSON.parse(response.body)['data']['attributes']
+        expect(user_with_products['id']).to eq(user.id)
+        expect(user_with_products['products']).to be_a(Array)
+        expect(user_with_products['products'][0]['name']).to eq(product_1.name)
+        expect(user_with_products['products'][0]['upc']).to eq(product_1.upc)
+        expect(user_with_products['products'][0]['avg_price']).to eq(product_1.avg_price)
+        expect(user_with_products['products'][1]['name']).to eq(product_2.name)
     end
+    
+    # sad path
+    it 'should return no products found'
 end
