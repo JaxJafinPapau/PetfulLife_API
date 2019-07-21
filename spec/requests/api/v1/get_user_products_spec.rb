@@ -29,7 +29,7 @@ describe 'GET api/v1/users/:user_id/products' do
 
         get "/api/v1/users/#{user.id}/products", headers: headers
 
-        expect(response.status).to eq(203)
+        expect(response.status).to eq(206)
 
         user_no_ps_error = JSON.parse(response.body)
         expect(user_no_ps_error['error']).to eq("This user has no products yet.")
