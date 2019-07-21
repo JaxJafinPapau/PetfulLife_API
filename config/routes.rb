@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
       resources :products, only: [:create, :show, :destroy]
       resources :users, only: [:create, :update, :show, :destroy] do
-        resources :pets, only: [:index, :show, :create, :update, :destroy]
+        resources :pets, only: [:index, :show, :create, :update, :destroy] do
+          get '/products', to: 'products#pet_products_index'
+        end
+        get '/products', to: 'products#index'
       end
     end
   end

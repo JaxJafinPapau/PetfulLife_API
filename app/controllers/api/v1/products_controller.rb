@@ -19,6 +19,56 @@ class Api::V1::ProductsController < ApplicationController
         end
     end
 
+    def index
+        begin
+            user = User.find(params['user_id'].to_i)
+        rescue
+            user = nil
+        end
+        if user
+            begin
+                products = user.products
+            rescue
+                products = nil
+            end
+            if products && products[0]
+                userproducts = UserProductsFacade.new(user, products)
+                serialized_userproducts = UserProductsSerializer.new(userproducts)
+                render json: serialized_userproducts, status: 200
+            else
+                # Not sure if 206 is the correct response for this, will check.
+                render :json => { :error => "This user has no products yet." }, status: 206
+            end
+        else
+            render :json => { :error => "User not found." }, status: 404
+        end
+    end
+
+    def pet_products_index
+        begin
+            pet = Pet.find(params['pet_id'])
+        rescue
+            pet = nil
+        end
+
+        if pet
+            begin
+                products = pet.products
+            rescue
+                products = nil
+            end
+            if products && products[0]
+                petproducts = PetProductsFacade.new(pet, products)
+                serialized_petproducts = PetProductsSerializer.new(petproducts)
+                render json: serialized_petproducts, status: 200
+            else
+                render :json => { :error => "This pet has no associated products."}, status: 206
+            end
+        else
+            render :json => { :error => "Pet not found." }, status: 404
+        end
+    end
+
     def destroy
         begin
             product = Product.find(params[:id])
