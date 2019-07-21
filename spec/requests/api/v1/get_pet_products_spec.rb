@@ -23,4 +23,33 @@ describe 'GET /api/v1/users/:user_id/pets/:pet_id/products' do
         product_ids = pet.products.map { |p| p.id }
         expect(product_ids).not_to include(product_2.id)
     end
+
+    # sad path
+    it 'should give appropriate error message if a pet has no products' do
+        user = User.create!(username: "test_user", email: "testingwtf@test.com", password_digest: "asdf")
+        pet = user.pets.create!(name: "Trevor", nickname: "Pupper", archetype: "Dog", breed: "Labradoodle")
+
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        get "/api/v1/users/#{user.id}/pets/#{pet.id}/products", headers: headers
+
+        expect(response.status).to eq(206)
+        error = JSON.parse(response.body)['error']
+
+        expect(error).to eq("This pet has no associated products.")
+    end
+
+    it 'should give appropriate error message if a pet is not found' do
+        user = User.create!(username: "test_user", email: "testingwtf@test.com", password_digest: "asdf")
+        pet = user.pets.create!(id: 23, name: "Trevor", nickname: "Pupper", archetype: "Dog", breed: "Labradoodle")
+
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        get "/api/v1/users/#{user.id}/pets/2004/products", headers: headers
+
+        expect(response.status).to eq(404)
+        error = JSON.parse(response.body)['error']
+
+        expect(error).to eq("Pet not found.")
+    end
 end
