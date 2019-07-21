@@ -20,7 +20,7 @@ describe 'GET /api/v1/users/:user_id/pets/:pet_id/products' do
         expect(pet_with_products['products'][0]['upc']).to eq(product_1.upc)
         expect(pet_with_products['products'][0]['avg_price']).to eq(product_1.avg_price)
 
-        product_ids = pet.products map { |p| p.id }
-        expect(product_ids).to_not have_value(product_2)
+        product_ids = pet.products.map { |p| p.id }
+        expect(product_ids).not_to include(product_2.id)
     end
 end
