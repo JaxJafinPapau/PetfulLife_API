@@ -36,8 +36,8 @@ class Api::V1::ProductsController < ApplicationController
                 serialized_userproducts = UserProductsSerializer.new(userproducts)
                 render json: serialized_userproducts, status: 200
             else
-                # Not sure if 203 is the correct response for this, will check.
-                render :json => { :error => "This user has no products yet." }, status: 203
+                # Not sure if 206 is the correct response for this, will check.
+                render :json => { :error => "This user has no products yet." }, status: 206
             end
         else
             render :json => { :error => "User not found." }, status: 404
@@ -62,7 +62,7 @@ class Api::V1::ProductsController < ApplicationController
                 serialized_petproducts = PetProductsSerializer.new(petproducts)
                 render json: serialized_petproducts, status: 200
             else
-                render :json => { :error => "This pet has no associated products."}, status: 203
+                render :json => { :error => "This pet has no associated products."}, status: 206
             end
         else
             render :json => { :error => "Pet not found." }, status: 404
