@@ -66,14 +66,6 @@ class Api::V1::PetsController < ApplicationController
     params.permit(:name, :nickname, :archetype, :breed)
   end
 
-  def user_exist?(id)
-    begin
-      User.find(id)
-    rescue
-      nil
-    end
-  end
-
   def pet_exist?(id)
     begin
       Pet.find(id)
