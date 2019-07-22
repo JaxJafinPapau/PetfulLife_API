@@ -18,6 +18,22 @@ The app is configured to run on `localhost:3000`.
 
 A convenient way to interact with an API-only rails app is through [postman](https://www.getpostman.com/).
 
+## Core Contributors
+
+#### Back End Team:
+[Vincent Provenzano](https://github.com/Vjp888)
+
+[Jeremy Bennett](https://github.com/jaxjafinpapau)
+
+#### Front End Team:
+[Adam Niedzwiecki](https://github.com/AdamN8142)
+
+[Lauren Boyer](https://github.com/lboyer4)
+
+## How to Contribute
+
+Please follow the [initial setup](#initial-setup) instructions, then when you have completed your contribution, create a pull request to the PetfulLife API master branch.
+
 ## How to use
 
 A sample request could be GET `localhost:3000/api/v1/products`.
@@ -133,7 +149,7 @@ Status: 201
 Should any of the field be incorrect or if the passwords are mismatched the response will be explicit error messages regarding the failure. with a status of  400
 
 ##### DELETE user information
-When a user wishes to delete the user they are required to have the ID of that user.
+When an administrator wishes to delete the user they are required to have the ID of that user.
 
 **This is permanent and *can not* be undone**
 
@@ -152,23 +168,138 @@ Upon success:
 Status -- 200
 Return all products, serialized as:  
 ```
-[
-    {
-        "id": 1,
-        "name": "Purina Puppy Chow",
-        "avg_rating": 4.74,
-        "avg_price": 25.91
-        "createdAt": "2019-07-02T19:15:59.841Z",
-        "updatedAt": "2019-07-02T19:15:59.841Z"
-    },
-    {
-        "id": 2,
-        "name": "Purina Kitten Pate",
-        ...
-    },
-    ...
-]
+data: {
+	products: {
+		[
+			{
+				"id": 1,
+				"name": "Purina Puppy Chow",
+				"avg_rating": 4.74,
+				"avg_price": 25.91
+				"createdAt": "2019-07-02T19:15:59.841Z",
+				"updatedAt": "2019-07-02T19:15:59.841Z"
+			},
+			{
+				"id": 2,
+				"name": "Purina Kitten Pate",
+				...
+			},
+			...
+		]
+	}
+}
 ```
+
+**`GET /api/v1/products/:product_id`**:
+
+Upon success:
+Status -- 200
+Return a single product, serialized as:
+```
+data: {
+	product: {
+			"id": 1,
+			"name": "Purina Puppy Chow",
+			"avg_rating": 4.74,
+			"avg_price": 25.91
+			"createdAt": "2019-07-02T19:15:59.841Z",
+			"updatedAt": "2019-07-02T19:15:59.841Z"
+		}
+	}
+
+```
+**`GET /api/v1/users/:user_id/products`**:
+
+Upon success:
+Status -- 200
+Returns all products that a particular user has identified that they are using or trying, serialized as:
+```
+"data": {
+	"attributes": {
+	 	"id": 1,
+	 	"username": "bob",
+		"products": 
+			[
+				{
+					"id": 1,
+					"name": "Purina Puppy Chow",
+					"avg_rating": 4.74,
+					"avg_price": 25.91
+					"createdAt": "2019-07-02T19:15:59.841Z",
+					"updatedAt": "2019-07-02T19:15:59.841Z"
+				},
+				{
+					"id": 2,
+					"name": "Purina Kitten Pate",
+					...
+				},
+				...
+			]
+	}
+}
+
+```
+
+**`GET /api/v1/users/:user_id/pets/:pet_id/products`**
+
+Upon success:
+Status -- 200
+Returns all products associated to that a particular pet assigned by the user, serialized as:
+```
+"data": {
+	"attributes": {
+	 	"id": pet.id,
+		"products": 
+			[
+				{
+					"id": 1,
+					"name": "Purina Puppy Chow",
+					"avg_rating": 4.74,
+					"avg_price": 25.91
+					"createdAt": "2019-07-02T19:15:59.841Z",
+					"updatedAt": "2019-07-02T19:15:59.841Z"
+				},
+				{
+					"id": 2,
+					"name": "Purina Kitten Pate",
+					...
+				},
+				...
+			]
+	}
+}
+
+```
+
+**`POST /api/v1/products`**
+Allows a user to access an existing DB product or create it simply by scanning a UPC. The UPC is the only information required to make a POST request.
+
+Request body:
+```
+{ upc: 110011001100 }
+```
+
+Response:
+Status: 201
+Body:
+```
+data: {
+	product: {
+			"id": 1,
+			"name": "Purina Puppy Chow",
+			"avg_rating": 4.74,
+			"avg_price": 25.91
+			"upc": 110011001100,
+			"createdAt": "2019-07-02T19:15:59.841Z",
+			"updatedAt": "2019-07-02T19:15:59.841Z"
+		}
+	}
+```
+
+**`DELETE /api/v1/products/:product_id`**
+
+No request body is required, however the id of the product must be known. Response will be 204 no content, or 400 bad request depending on outcome.
+
 
 ###Pets
 In order to receive any pet information you must know the pets' owner id
@@ -334,19 +465,6 @@ The test suite for this project is rspec. In order to run the suite, after follo
 
 `bundle exec rspec`
 
-## Core Contributors
-
-#### Back End Team:
-[Vincent Provenzano](https://github.com/Vjp888)
-[Jeremy Bennett](https://github.com/jaxjafinpapau)
-
-#### Front End Team:
-[Adam Niedzwiecki](https://github.com/AdamN8142)
-[Lauren Boyer](https://github.com/lboyer4)
-
-## How to Contribute
-
-Please follow the [initial setup](#initial-setup) instructions, then when you have completed your contribution, create a pull request to the PetfulLife API master branch.
 
 ## Database Schema
 
