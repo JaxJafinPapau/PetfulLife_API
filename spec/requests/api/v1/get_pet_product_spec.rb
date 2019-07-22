@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'GET /api/v1/users/:user_id/pets/:pet_id/product/:product_id' do
+describe 'GET /api/v1/users/:user_id/pets/:pet_id/products/:product_id' do
     it 'should return the product associated with the pet' do
         user = User.create!(username: "test_user", email: "testingwtf@test.com", password_digest: "asdf")
         pet = user.pets.create!(name: "Trevor", nickname: "Pupper", archetype: "Dog", breed: "Labradoodle")
