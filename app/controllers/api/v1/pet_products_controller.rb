@@ -13,4 +13,10 @@ class Api::V1::PetProductsController < ApplicationController
         render :json => { :error => "Bad Request" }, status: 400
       end
     end
+
+    def create
+      pet = Pet.find(params[:pet_id])
+      product = Product.find(params[:id])
+      pet.products << product
+    end
 end
