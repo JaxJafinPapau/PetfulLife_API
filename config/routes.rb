@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         resources :pets, only: [:index, :show, :create, :update, :destroy] do
           get '/products', to: 'products#pet_products_index'
           get '/products/:id', to: 'pet_products#show'
+          post '/products/:id', to: 'pet_products#create'
         end
         get '/products', to: 'products#index'
       end
