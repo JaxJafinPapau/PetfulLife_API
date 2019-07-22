@@ -167,6 +167,7 @@ Should it fail the response will be ```status: 404 {error: 'user not found'}```
 Upon success:  
 Status -- 200
 Return all products, serialized as:  
+
 ```
 data: {
 	products: {
@@ -195,6 +196,7 @@ data: {
 Upon success:
 Status -- 200
 Return a single product, serialized as:
+
 ```
 data: {
 	product: {
@@ -208,17 +210,19 @@ data: {
 	}
 
 ```
+
 **`GET /api/v1/users/:user_id/products`**:
 
 Upon success:
 Status -- 200
 Returns all products that a particular user has identified that they are using or trying, serialized as:
+
 ```
 "data": {
 	"attributes": {
 	 	"id": 1,
 	 	"username": "bob",
-		"products": 
+		"products":
 			[
 				{
 					"id": 1,
@@ -245,11 +249,12 @@ Returns all products that a particular user has identified that they are using o
 Upon success:
 Status -- 200
 Returns all products associated to that a particular pet assigned by the user, serialized as:
+
 ```
 "data": {
 	"attributes": {
 	 	"id": pet.id,
-		"products": 
+		"products":
 			[
 				{
 					"id": 1,
@@ -271,10 +276,38 @@ Returns all products associated to that a particular pet assigned by the user, s
 
 ```
 
+**`GET /api/v1/users/:user_id/pets/:pet_id/products/:product_id`**
+
+Upon success:
+Status -- 200
+Returns product associated to that a particular pet assigned by the user, serialized as:
+
+```
+"data": {
+	"attributes": {
+	 	"id": product.id,
+	 	"pet_id": pet.id,
+	 	"user_id": user.id,
+		"product":
+				{
+					"id": 1,
+					"name": "Purina Puppy Chow",
+					"avg_rating": 4.74,
+					"avg_price": 25.91
+					"createdAt": "2019-07-02T19:15:59.841Z",
+					"updatedAt": "2019-07-02T19:15:59.841Z"
+				}
+	}
+}
+
+```
+
+
 **`POST /api/v1/products`**
 Allows a user to access an existing DB product or create it simply by scanning a UPC. The UPC is the only information required to make a POST request.
 
 Request body:
+
 ```
 { upc: 110011001100 }
 ```
@@ -282,6 +315,7 @@ Request body:
 Response:
 Status: 201
 Body:
+
 ```
 data: {
 	product: {

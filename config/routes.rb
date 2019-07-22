@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :update, :show, :destroy] do
         resources :pets, only: [:index, :show, :create, :update, :destroy] do
           get '/products', to: 'products#pet_products_index'
+          get '/products/:id', to: 'pet_products#show'
         end
         get '/products', to: 'products#index'
       end
