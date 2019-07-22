@@ -10,20 +10,26 @@ class PetProductFacade
     end
 
     def product
-        p = Product.find(@id)
-        return p if p
+      begin
+        Product.find(@id)
+      rescue
         nil
+      end
     end
 
     def pet
-        p = Pet.find(@pet_id)
-        return p if p
+      begin
+        Pet.find(@pet_id)
+      rescue
         nil
+      end
     end
 
     def user
-        u = User.find(@user_id)
-        return u if u
+      begin
+        User.find(@user_id)
+      rescue
         nil
+      end
     end
 end
