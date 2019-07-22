@@ -1,6 +1,6 @@
 class Api::V1::ProductsController < ApplicationController
     def create
-        product = ProductFacade.new(create_params)
+        product = ProductFacade.new(create_params, user_params)
         status = create_201_status(product)
         result = create_result(product)
         render status: status, json: result
@@ -87,6 +87,10 @@ class Api::V1::ProductsController < ApplicationController
 
         def create_params
             params.permit(:upc).require(:upc)
+        end
+
+        def user_params
+            params.permit(:user_id).require(:user_id)
         end
 
         def create_201_status(product)
