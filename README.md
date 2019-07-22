@@ -18,6 +18,22 @@ The app is configured to run on `localhost:3000`.
 
 A convenient way to interact with an API-only rails app is through [postman](https://www.getpostman.com/).
 
+## Core Contributors
+
+#### Back End Team:
+[Vincent Provenzano](https://github.com/Vjp888)
+
+[Jeremy Bennett](https://github.com/jaxjafinpapau)
+
+#### Front End Team:
+[Adam Niedzwiecki](https://github.com/AdamN8142)
+
+[Lauren Boyer](https://github.com/lboyer4)
+
+## How to Contribute
+
+Please follow the [initial setup](#initial-setup) instructions, then when you have completed your contribution, create a pull request to the PetfulLife API master branch.
+
 ## How to use
 
 A sample request could be GET `localhost:3000/api/v1/products`.
@@ -334,19 +350,6 @@ The test suite for this project is rspec. In order to run the suite, after follo
 
 `bundle exec rspec`
 
-## Core Contributors
-
-#### Back End Team:
-[Vincent Provenzano](https://github.com/Vjp888)
-[Jeremy Bennett](https://github.com/jaxjafinpapau)
-
-#### Front End Team:
-[Adam Niedzwiecki](https://github.com/AdamN8142)
-[Lauren Boyer](https://github.com/lboyer4)
-
-## How to Contribute
-
-Please follow the [initial setup](#initial-setup) instructions, then when you have completed your contribution, create a pull request to the PetfulLife API master branch.
 
 ## Database Schema
 
