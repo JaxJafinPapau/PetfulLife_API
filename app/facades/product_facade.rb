@@ -4,27 +4,34 @@ class ProductFacade
                 :avg_price,
                 :upc
 
-    def initialize(upc)
+    def initialize(upc, user_id)
         @upc = upc
+        @user_id = user_id
         @id = product[:id]
         @name = product[:name]
         @avg_price = product[:avg_price]
     end
 
     def product
+        user = User.find(@user_id)
         db_product = Product.find_by(upc: @upc)
-        return db_product if db_product
-        new_product
+        if db_product
+            user.products << db_product
+            return db_product
+        else
+            new_product(user)
+        end
     end
 
     private
 
-        def new_product
+        def new_product(user)
             return { id: nil, name: nil, avg_price: nil } if raw_product == nil
             product = Product.create(name: raw_product['title'],
                            upc: @upc,
                            avg_price: average_price(lowest_product_price, highest_product_price)
             )
+            user.products << product
             product
         end
 
