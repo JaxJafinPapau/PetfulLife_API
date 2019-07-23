@@ -13,6 +13,7 @@ describe 'GET api/v1/users/:user_id/products' do
         expect(response.status).to eq(200)
 
         user_with_products = JSON.parse(response.body)['data']['attributes']
+
         expect(user_with_products['id']).to eq(user.id)
         expect(user_with_products['products']).to be_a(Array)
         expect(user_with_products['products'][0]['name']).to eq(product_1.name)
