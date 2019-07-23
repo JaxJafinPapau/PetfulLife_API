@@ -330,6 +330,11 @@ data: {
 	}
 ```
 
+**`POST /api/v1/users/:user_id/pets/:pet_id/products/:product_id`**
+Allows a user to associate any product that they have scanned, thereby associated it to their account, to any of the pets they have created.
+
+No request body is required, however the id's of the owner, their pet, and their product must be known. Response will be 204 no content if successful, 404 if one of the resources (user, pet, or product) is not found, or 400 if the request fails entirely.
+
 **`DELETE /api/v1/products/:product_id`**
 
 No request body is required, however the id of the product must be known. Response will be 204 no content, or 400 bad request depending on outcome.
