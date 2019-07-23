@@ -31,4 +31,46 @@ class Api::V1::PetProductsController < ApplicationController
         render status: 400, json: { error: "Bad request." }
       end
     end
+
+    def update
+      product = product_exist?(params[:id])
+      pet = pet_exist?(params[:pet_id])
+      gb = good_or_bad(update_params[:good_or_bad])
+      if pet && product && pet.products.include?(product) && gb != 0
+        pet_product = PetProduct.find_by(product_id: params[:id], pet_id: params[:pet_id])
+        pet_product.update(good_or_bad: gb, notes: update_params[:notes])
+        render status: 202
+      elsif pet.nil?
+        render status: 404, json: { error: "Pet not found." }
+      elsif product.nil?
+        render status: 404, json: { error: "Product not found." }
+      elsif pet.products.exclude?(product)
+        render status: 404, json: { error: "Product does not belong to that pet, please make a post request first."}
+      elsif gb == 0
+        render status: 400, json: { error: "You must pass either good or bad as a single string." } 
+      else
+        render status: 400, json: { error: "Bad request" }
+      end
+    end
+
+    private
+
+      def update_params
+        params.require(:pet_product).permit(:good_or_bad, :notes)
+      end
+
+      def good_or_bad(text)
+        begin
+          t = text.downcase.to_sym
+          enumerator = {
+            "good": true,
+            "bad": false
+          }
+          raise "error" if enumerator[t] == nil
+          enumerator[t]
+        rescue
+          0
+        end
+      end
+
 end

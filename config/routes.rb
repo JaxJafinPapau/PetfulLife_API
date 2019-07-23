@@ -9,6 +9,7 @@ Rails.application.routes.draw do
           get '/products', to: 'products#pet_products_index'
           get '/products/:id', to: 'pet_products#show'
           post '/products/:id', to: 'pet_products#create'
+          patch '/products/:id', to: 'pet_products#update'
         end
         get '/products', to: 'products#index'
       end
