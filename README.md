@@ -304,12 +304,12 @@ Returns product associated to that a particular pet assigned by the user, serial
 
 
 **`POST /api/v1/products`**
-Allows a user to access an existing DB product or create it simply by scanning a UPC. The UPC is the only information required to make a POST request.
+Allows a user to access an existing DB product or create it simply by scanning a UPC. The UPC and the user id are required to make a POST request. The post request will automatically associate this product to this user.
 
 Request body:
 
 ```
-{ upc: 110011001100 }
+{ upc: 110011001100, user_id: 1 }
 ```
 
 Response:
@@ -337,7 +337,9 @@ No request body is required, however the id of the product must be known. Respon
 
 ###Pets
 In order to receive any pet information you must know the pets' owner id
-The base URL You will be user is ```/api/v1/users/:user_id/pets```
+The base request URL is
+
+```/api/v1/users/:user_id/pets```
 
 #### Get Pet Information
 To recieve all pets associated with a user:
