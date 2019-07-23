@@ -33,6 +33,29 @@ class Api::V1::PetProductsController < ApplicationController
     end
 
     def update
-      binding.pry
+      product = product_exist?(params[:id])
+      pet = pet_exist?(params[:pet_id])
+      if pet && product && pet.products.include?(product)
+        pet_product = PetProduct.find_by(product_id: params[:id], pet_id: params[:pet_id])
+        gb = good_or_bad(update_params[:good_or_bad])
+        pet_product.update(good_or_bad: gb, notes: update_params[:notes])
+        render status: 202
+      end
     end
+
+    private
+
+      def update_params
+        params.require(:pet_product).permit(:good_or_bad, :notes)
+      end
+
+      def good_or_bad(text)
+        text.downcase
+        enumerator = {
+          "good": true,
+          "bad": false
+        }
+        enumerator[text]
+      end
+
 end
