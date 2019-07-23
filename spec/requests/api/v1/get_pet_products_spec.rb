@@ -9,6 +9,7 @@ describe 'GET /api/v1/users/:user_id/pets/:pet_id/products' do
 
         headers = { "CONTENT_TYPE" => "application/json" }
 
+        patch "/api/v1/users/#{user.id}/pets/#{pet.id}/products/#{product_1.id}", headers: headers, params: { good_or_bad: "bad", notes: "yeehaw"}.to_json
         get "/api/v1/users/#{user.id}/pets/#{pet.id}/products", headers: headers
 
         expect(response.status).to eq(200)
@@ -19,6 +20,9 @@ describe 'GET /api/v1/users/:user_id/pets/:pet_id/products' do
         expect(pet_with_products['products'][0]['name']).to eq(product_1.name)
         expect(pet_with_products['products'][0]['upc']).to eq(product_1.upc)
         expect(pet_with_products['products'][0]['avg_price']).to eq(product_1.avg_price)
+
+
+        expect(pet_with_products['products'][0]['good_or_bad']).to eq(product_1.good_or_bad)
 
         product_ids = pet.products.map { |p| p.id }
         expect(product_ids).not_to include(product_2.id)
