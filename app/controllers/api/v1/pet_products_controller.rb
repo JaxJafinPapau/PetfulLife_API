@@ -31,4 +31,8 @@ class Api::V1::PetProductsController < ApplicationController
         render status: 400, json: { error: "Bad request." }
       end
     end
+
+    def update
+      binding.pry
+    end
 end
