@@ -38,21 +38,19 @@ Please follow the [initial setup](#initial-setup) instructions, then when you ha
 
 A sample request could be GET `localhost:3000/api/v1/products`.
 
-###Endpoints:
+##Endpoints:
 
 ### Users
+
 Reaching user Endpoints will use ```/api/v1/users```
 
 users have complete CRUD functionality
 
-#####GET user information
+**`GET /api/v1/users/:id`**
+
 In order to receive a user you are required to know that user's ID
 
-This will return a user's information **minus** their password information for security purposes
-
-Request:
-
-```GET /api/v1/users/:id```
+This will return a user's information **minus** their password information for security purposes. No request body is required.
 
 Response:
 
@@ -74,12 +72,11 @@ Should there be no present user the Response will return
 ```status: 404 {error: User not found}```
 
 
-#####POST user information
+**`POST /api/v1/users`**
+
 When posting to the endpoint all fields are required
 
 Request:
-
-```POST /api/v1/users```
 
 Body:
 
@@ -110,12 +107,12 @@ Response:
 
 If there is a failure the return of this request will give explicit errors as to the problem. Likely errors include missing fields or mismatched passwords.
 
-##### PATCH user information
+**`PATCH /api/v1/users/:id`**
+
 When a user wishes to update their information they are able to do so completely or with single field requests.
 
 The user ID is required to update a user's information
 
-Request: ```PATCH /api/v1/users/:id```
 
 Body:
 
@@ -148,21 +145,22 @@ Status: 201
 
 Should any of the field be incorrect or if the passwords are mismatched the response will be explicit error messages regarding the failure. with a status of  400
 
-##### DELETE user information
+**`DELETE /api/v1/users/:ID`**
+
 When an administrator wishes to delete the user they are required to have the ID of that user.
 
 **This is permanent and *can not* be undone**
-
-Request: ```DELETE /api/v1/users/:ID```
 
 Response: ```Status: 204```
 
 Should it fail the response will be ```status: 404 {error: 'user not found'}```
 
 
-#### Products
+### Products
 
-**`GET /api/v1/products`**:  
+Depending on the type of manipulation required, the base URL for product end points will change.
+
+**`GET /api/v1/products`**
 
 Upon success:  
 Status -- 200
@@ -304,12 +302,12 @@ Returns product associated to that a particular pet assigned by the user, serial
 
 
 **`POST /api/v1/products`**
-Allows a user to access an existing DB product or create it simply by scanning a UPC. The UPC is the only information required to make a POST request.
+Allows a user to access an existing DB product or create it simply by scanning a UPC. The UPC and the user id are required to make a POST request. The post request will automatically associate this product to this user.
 
 Request body:
 
 ```
-{ upc: 110011001100 }
+{ upc: 110011001100, user_id: 1 }
 ```
 
 Response:
@@ -330,6 +328,11 @@ data: {
 	}
 ```
 
+**`POST /api/v1/users/:user_id/pets/:pet_id/products/:product_id`**
+Allows a user to associate any product that they have scanned, thereby associated it to their account, to any of the pets they have created.
+
+No request body is required, however the id's of the owner, their pet, and their product must be known. Response will be 204 no content if successful, 404 if one of the resources (user, pet, or product) is not found, or 400 if the request fails entirely.
+
 **`DELETE /api/v1/products/:product_id`**
 
 No request body is required, however the id of the product must be known. Response will be 204 no content, or 400 bad request depending on outcome.
@@ -337,15 +340,13 @@ No request body is required, however the id of the product must be known. Respon
 
 ###Pets
 In order to receive any pet information you must know the pets' owner id
-The base URL You will be user is ```/api/v1/users/:user_id/pets```
+The base request URL is
 
-#### Get Pet Information
+```/api/v1/users/:user_id/pets```
+
+**`GET /api/v1/user/:user_id/pets`**
+
 To recieve all pets associated with a user:
-Request:
-
-```
-GET - /api/v1/user/:user_id/pets
-```
 
 Response:
 
@@ -374,14 +375,9 @@ Status: 200
 }
 ```
 
-#### Get Single Pet Information
-This will return a single pet's information You must know the User ID **and** Pet Id
+**`GET /api/v1/users/:user_id/pets/:pet_id`**
 
-Request:
-
-```
-GET - /api/v1/users/:user_id/pets/:pet_id
-```
+This will return a single pet's information You must know the User ID **and** Pet Id.
 
 Response:
 
@@ -403,14 +399,9 @@ Status: 200
  }}
 ```
 
-####POST - Pet Creation
-This action will allow a user to create a pet. You must have a user and know the user ID to create a pet
+**`POST /api/v1/users/#{@user.id}/pets`**
 
-Request:
-
-```
-POST - /api/v1/users/#{@user.id}/pets
-```
+This action will allow a user to create a pet. You must have a user and know the user ID to create a pet.
 
 Body:
 
@@ -440,14 +431,10 @@ Status: 201
    					"archetype"=>"dog"}}}
 ```
 
-####Patch - Update Pet information
-To update a pet's information you need the user ID and pet ID. You are able to update all or single fields as needed
+**`PATCH "/api/v1/users/#{@user.id}/pets/#{pet.id}"`**
 
-Request:
+To update a pet's information you need the user ID and pet ID. You are able to update all or single fields as needed.
 
-```
-patch "/api/v1/users/#{@user.id}/pets/#{pet.id}"
-```
 Body:
 
 Each field is optional but you must include at least one.
@@ -478,16 +465,11 @@ Status: 202
 }
 ```
 
-####Delete - Pet Deletion
+**`DELETE /api/v1/users/:user_id/pets/:pet_id`**
+
 To delete a pet you must know the user id and pet id. The User must also own the Pet to be able to delete it.
 
 **This is permanent and *can not* be undone**
-
-Request:
-
-```
-DELETE /api/v1/users/:user_id/pets/:pet_id
-```
 
 Response:
 
