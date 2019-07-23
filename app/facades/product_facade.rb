@@ -13,17 +13,21 @@ class ProductFacade
     end
 
     def product
-        user = User.find(@user_id)
-        db_product = Product.find_by(upc: @upc)
-        if db_product
-            user.products << db_product
-            return db_product
-        else
-            new_product(user)
-        end
+        @product ||= product_finder
     end
 
     private
+
+        def product_finder
+            user = User.find(@user_id)
+            db_product = Product.find_by(upc: @upc)
+            if db_product
+                user.products << db_product
+                return db_product
+            else
+                new_product(user)
+            end
+        end
 
         def new_product(user)
             return { id: nil, name: nil, avg_price: nil } if raw_product == nil
