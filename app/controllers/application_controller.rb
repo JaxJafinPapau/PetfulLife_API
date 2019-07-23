@@ -14,4 +14,12 @@ class ApplicationController < ActionController::API
       nil
     end
   end
+
+  def product_exist?(id)
+    begin
+      Product.find(id)
+    rescue
+      nil
+    end
+  end
 end
