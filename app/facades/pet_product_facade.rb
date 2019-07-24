@@ -11,7 +11,15 @@ class PetProductFacade
 
     def product
       begin
-        Product.find(@id)
+        pp = PetProduct.includes(:product).where(product_id: @id, pet_id: @pet_id).first
+        {
+          id: pp.product.id,
+          name: pp.product.name,
+          avg_price: pp.product.avg_price,
+          upc: pp.product.upc,
+          good_or_bad: pp.good_or_bad,
+          notes: pp.notes
+        }
       rescue
         nil
       end
