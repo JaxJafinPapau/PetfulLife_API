@@ -3,5 +3,5 @@ class Pet < ApplicationRecord
                         :archetype
   belongs_to :user
   has_many :pet_products
-  has_many :products, through: :pet_products
+  has_many :products, through: :pet_products, dependent: :destroy
 end

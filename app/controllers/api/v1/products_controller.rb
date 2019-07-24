@@ -76,7 +76,7 @@ class Api::V1::ProductsController < ApplicationController
             product = nil
         end
         if product
-            product.delete
+            product.destroy
             render json: {}, status: 204
         else
         render :json => { :error => "Sorry, that product wasn't found." }, status: 404
