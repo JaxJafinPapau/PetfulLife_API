@@ -46,7 +46,7 @@ class Api::V1::ProductsController < ApplicationController
 
     def pet_products_index
         begin
-            pet = Pet.find(params['pet_id'])
+            pet = Pet.includes(:pet_products, :products).where(id: params['pet_id']).first
         rescue
             pet = nil
         end
@@ -58,7 +58,7 @@ class Api::V1::ProductsController < ApplicationController
                 products = nil
             end
             if products && products[0]
-                petproducts = PetProductsFacade.new(pet, products)
+                petproducts = PetProductsFacade.new(pet)
                 serialized_petproducts = PetProductsSerializer.new(petproducts)
                 render json: serialized_petproducts, status: 200
             else

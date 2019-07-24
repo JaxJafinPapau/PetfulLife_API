@@ -258,7 +258,9 @@ Returns all products associated to that a particular pet assigned by the user, s
 					"id": 1,
 					"name": "Purina Puppy Chow",
 					"avg_rating": 4.74,
-					"avg_price": 25.91
+					"avg_price": 25.91,
+					"good_or_bad": true,
+					"notes": "There is way better puppy food."
 					"createdAt": "2019-07-02T19:15:59.841Z",
 					"updatedAt": "2019-07-02T19:15:59.841Z"
 				},
@@ -291,7 +293,9 @@ Returns product associated to that a particular pet assigned by the user, serial
 					"id": 1,
 					"name": "Purina Puppy Chow",
 					"avg_rating": 4.74,
-					"avg_price": 25.91
+					"avg_price": 25.91,
+					"good_or_bad": false,
+					"notes": "gave puppy an upset tummy.",
 					"createdAt": "2019-07-02T19:15:59.841Z",
 					"updatedAt": "2019-07-02T19:15:59.841Z"
 				}
@@ -332,6 +336,25 @@ data: {
 Allows a user to associate any product that they have scanned, thereby associated it to their account, to any of the pets they have created.
 
 No request body is required, however the id's of the owner, their pet, and their product must be known. Response will be 204 no content if successful, 404 if one of the resources (user, pet, or product) is not found, or 400 if the request fails entirely.
+
+**`PATCH /api/v1/users/:user_id/pets/:pet_id/products/:product_id`**
+Allows a user to update the good_or_bad rating stored on the pet_products joins table as well as save any notes they have about the product.
+
+Request body:
+
+```
+{ good_or_bad: "bad", notes: "Kitty had itchy skin." }
+```
+
+Response:
+    Status: 202
+
+The good_or_bad value in the db is stored as a boolean, so any get requests containing this information will enumerate to:
+
+```
+"bad" = false
+"good" = true
+```
 
 **`DELETE /api/v1/products/:product_id`**
 

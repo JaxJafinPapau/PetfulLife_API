@@ -1,8 +1,19 @@
 class PetProductsFacade
-    attr_reader :products
-    def initialize(pet, products)
+    def initialize(pet)
         @pet = pet
-        @products = products
+        @pet_products = pet.pet_products
+    end
+
+    def products
+        @pet_products.map do |pp|
+            { id: pp.product.id,
+              name: pp.product.name,
+              avg_price: pp.product.avg_price,
+              upc: pp.product.upc,
+              good_or_bad: pp.good_or_bad,
+              notes: pp.notes
+             }
+        end
     end
 
     def id

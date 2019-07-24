@@ -8,4 +8,5 @@ class Product < ApplicationRecord
 
   validates :avg_price, numericality: {only_float: true}
   validates :upc, numericality: {only_integer: true}
+
 end
