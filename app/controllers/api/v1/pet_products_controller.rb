@@ -1,14 +1,14 @@
 class Api::V1::PetProductsController < ApplicationController
     def show
       facade = PetProductFacade.new(params)
-      if facade.user && facade.user.pets.include?(facade.pet) && facade.pet.products.include?(facade.product)
+    if facade.user == nil
+      render :json => { :error => "User not found" }, status: 404
+    elsif facade.pet == nil || facade.user.pets.exclude?(facade.pet)
+      render :json => { :error => "Pet not found" }, status: 404
+    elsif facade.product == nil
+      render :json => { :error => "Product not found" }, status: 404
+    elsif facade.user && facade.user.pets.include?(facade.pet)
         render json: PetProductSerializer.new(facade), status: 200
-      elsif facade.user == nil
-        render :json => { :error => "User not found" }, status: 404
-      elsif facade.pet == nil || facade.user.pets.exclude?(facade.pet)
-        render :json => { :error => "Pet not found" }, status: 404
-      elsif facade.product == nil || facade.pet.product.exclude?(facade.product)
-        render :json => { :error => "Product not found" }, status: 404
       else
         render :json => { :error => "Bad Request" }, status: 400
       end
