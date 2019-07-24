@@ -9,6 +9,7 @@ describe 'GET /api/v1/users/:user_id/pets/:pet_id/products/:product_id' do
 
         headers = { "CONTENT_TYPE" => "application/json" }
 
+        patch "/api/v1/users/#{user.id}/pets/#{pet.id}/products/#{product_1.id}", headers: headers, params: { good_or_bad: "bad", notes: "yeehaw"}.to_json
         get "/api/v1/users/#{user.id}/pets/#{pet.id}/products/#{product_1.id}/", headers: headers
 
         expect(response.status).to eq(200)
@@ -18,6 +19,8 @@ describe 'GET /api/v1/users/:user_id/pets/:pet_id/products/:product_id' do
         expect(pet_product['product']['name']).to eq(product_1.name)
         expect(pet_product['product']['upc']).to eq(product_1.upc)
         expect(pet_product['product']['avg_price']).to eq(product_1.avg_price)
+        expect(pet_product['product']['good_or_bad']).to eq(false)
+        expect(pet_product['product']['notes']).to eq("yeehaw")
     end
 
     it 'should return correct error message when user is not found' do
