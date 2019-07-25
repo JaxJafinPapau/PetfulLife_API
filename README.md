@@ -512,3 +512,5 @@ The test suite for this project is rspec. In order to run the suite, after follo
 ## Tech Stack
 
 - Ruby on Rails 5.2
+- Travis CI
+- Rspec
