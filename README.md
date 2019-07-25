@@ -38,7 +38,7 @@ Please follow the [initial setup](#initial-setup) instructions, then when you ha
 
 A sample request could be GET `localhost:3000/api/v1/products`.
 
-##Endpoints:
+## Endpoints:
 
 ### Users
 
